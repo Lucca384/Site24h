@@ -1,10 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PixelUp — Sites profissionais para empresas em SP</title>
+<meta name="description" content="Sites profissionais para empresas em SP entregues em menos de 24 horas. Landing pages, sites institucionais e muito mais. Orçamento grátis pelo WhatsApp.">
+<title>Site24h — Sites profissionais para empresas em SP</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -18,42 +18,44 @@
   --white: #FFFFFF;
   --blue: #1A56DB;
 }
-
+ 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
-
+ 
 body {
   font-family: 'Open Sans', sans-serif;
   background: var(--paper);
   color: var(--ink);
   overflow-x: hidden;
 }
-
-/* ── CURSOR ── */
-.cursor {
-  width: 8px; height: 8px;
-  background: var(--fire);
-  border-radius: 50%;
-  position: fixed; pointer-events: none; z-index: 9999;
-  transform: translate(-50%,-50%);
-  transition: width .2s, height .2s, background .2s;
+ 
+/* ── CURSOR (desktop only) ── */
+@media (hover: hover) and (pointer: fine) {
+  .cursor {
+    width: 8px; height: 8px;
+    background: var(--fire);
+    border-radius: 50%;
+    position: fixed; pointer-events: none; z-index: 9999;
+    transform: translate(-50%,-50%);
+    transition: width .2s, height .2s, background .2s;
+  }
+  .cursor-ring {
+    width: 36px; height: 36px;
+    border: 1.5px solid var(--fire);
+    border-radius: 50%;
+    position: fixed; pointer-events: none; z-index: 9998;
+    transform: translate(-50%,-50%);
+    transition: all .15s ease;
+    opacity: .5;
+  }
 }
-.cursor-ring {
-  width: 36px; height: 36px;
-  border: 1.5px solid var(--fire);
-  border-radius: 50%;
-  position: fixed; pointer-events: none; z-index: 9998;
-  transform: translate(-50%,-50%);
-  transition: all .15s ease;
-  opacity: .5;
-}
-
+ 
 /* ── NAV ── */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 500;
   display: flex; justify-content: space-between; align-items: center;
   padding: 1.1rem 5vw;
-  background: rgba(245,242,237,0.9);
+  background: rgba(245,242,237,0.95);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--line);
   animation: slideDown .5s ease both;
@@ -79,7 +81,40 @@ nav {
   white-space: nowrap;
 }
 .nav-btn:hover { background: var(--fire); }
-
+ 
+/* Hamburger */
+.hamburger {
+  display: none; flex-direction: column; gap: 5px; cursor: pointer;
+  padding: 4px; background: none; border: none;
+}
+.hamburger span {
+  display: block; width: 24px; height: 2px; background: var(--ink);
+  transition: all .3s;
+}
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+ 
+.mobile-menu {
+  display: none; position: fixed; top: 64px; left: 0; right: 0; z-index: 490;
+  background: rgba(245,242,237,0.98); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+  flex-direction: column; padding: 1.5rem 5vw 2rem;
+  gap: 1.2rem;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-size: .9rem; font-weight: 600; color: var(--ink);
+  text-decoration: none; padding: .5rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.mobile-menu .mob-cta {
+  display: block; text-align: center; margin-top: .5rem;
+  background: var(--fire); color: var(--white);
+  padding: .85rem; border-radius: 3px;
+  font-weight: 700; border: none;
+}
+ 
 /* ── HERO ── */
 #hero {
   min-height: 100vh;
@@ -99,9 +134,9 @@ nav {
 }
 .blob1 { width: 500px; height: 500px; background: #FFD3C2; top: -100px; right: -100px; }
 .blob2 { width: 300px; height: 300px; background: #C7D9FF; bottom: 0; left: 10%; }
-
+ 
 .hero-left { position: relative; z-index: 1; }
-
+ 
 .launch-pill {
   display: inline-flex; align-items: center; gap: .6rem;
   background: var(--white); border: 1px solid var(--line);
@@ -116,22 +151,22 @@ nav {
   animation: blink 1.4s infinite;
 }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.2} }
-
+ 
 h1 {
   font-family: 'Roboto', sans-serif;
-  font-size: clamp(3rem, 5.5vw, 5rem);
+  font-size: clamp(2.6rem, 5.5vw, 5rem);
   font-weight: 800; line-height: 1.03; letter-spacing: -.03em;
   animation: fadeUp .6s .2s ease both;
 }
 h1 .line2 { color: var(--fire); display: block; }
 h1 .line3 { color: var(--mist); display: block; font-weight: 600; }
-
+ 
 .hero-desc {
   font-size: 1.05rem; color: var(--mist); line-height: 1.7;
   max-width: 440px; margin: 1.8rem 0 2.4rem;
   animation: fadeUp .6s .3s ease both;
 }
-
+ 
 .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp .6s .4s ease both; }
 .cta-main {
   background: var(--fire); color: var(--white);
@@ -150,7 +185,7 @@ h1 .line3 { color: var(--mist); display: block; font-weight: 600; }
   transition: border-color .2s, background .2s;
 }
 .cta-sec:hover { border-color: var(--ink); background: var(--warm); }
-
+ 
 .hero-trust {
   margin-top: 2.5rem; display: flex; align-items: center; gap: 1.2rem;
   animation: fadeUp .6s .5s ease both;
@@ -169,7 +204,7 @@ h1 .line3 { color: var(--mist); display: block; font-weight: 600; }
 .ta3 { background: #BBF7D0; }
 .trust-text { font-size: .8rem; color: var(--mist); line-height: 1.4; }
 .trust-text strong { color: var(--ink); display: block; }
-
+ 
 /* Hero Visual */
 .hero-right {
   position: relative; z-index: 1;
@@ -197,7 +232,7 @@ h1 .line3 { color: var(--mist); display: block; font-weight: 600; }
   border-radius: 3px; padding: .28rem .7rem;
   font-size: .68rem; color: var(--mist); letter-spacing: .02em;
 }
-
+ 
 /* Animated site preview inside laptop */
 .site-preview {
   padding: 0;
@@ -232,7 +267,7 @@ h1 .line3 { color: var(--mist); display: block; font-weight: 600; }
 .ic-green { background: #10B981; }
 .sp-card-line { height: 4px; border-radius: 2px; background: #E0DDD8; margin-bottom: .2rem; }
 .sp-card-line.short { width: 60%; }
-
+ 
 /* Floating badge on laptop */
 .float-badge {
   position: absolute; bottom: -16px; right: -16px;
@@ -246,7 +281,7 @@ h1 .line3 { color: var(--mist); display: block; font-weight: 600; }
 .fb-text strong { display: block; font-size: .82rem; font-weight: 700; }
 .fb-text span { font-size: .72rem; color: #9CA3AF; }
 @keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
-
+ 
 .float-tag {
   position: absolute; top: -16px; left: -16px;
   background: var(--fire); color: var(--white);
@@ -255,7 +290,7 @@ h1 .line3 { color: var(--mist); display: block; font-weight: 600; }
   box-shadow: 0 4px 16px rgba(232,77,28,.4);
   animation: floatY 3.5s .5s ease-in-out infinite;
 }
-
+ 
 /* ── MARQUEE ── */
 .marquee-wrap {
   background: var(--ink); color: var(--white);
@@ -270,7 +305,7 @@ h1 .line3 { color: var(--mist); display: block; font-weight: 600; }
 }
 .marquee-track span { margin: 0 2rem; color: var(--fire); }
 @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-
+ 
 /* ── SOBRE / PROPOSTA ── */
 #proposta {
   padding: 8rem 5vw;
@@ -300,7 +335,7 @@ h2 {
 .prop-icon { font-size: 1.5rem; margin-bottom: .6rem; }
 .prop-item strong { display: block; font-size: .88rem; font-weight: 700; margin-bottom: .2rem; }
 .prop-item p { font-size: .8rem; color: var(--mist); line-height: 1.5; }
-
+ 
 /* Launch card */
 .launch-card {
   background: var(--ink); border-radius: 10px;
@@ -332,7 +367,7 @@ h2 {
 }
 .launch-offer p { color: var(--fire); font-weight: 600; font-size: .88rem; margin: 0; }
 .launch-offer small { color: #9CA3AF; font-size: .75rem; }
-
+ 
 /* ── COMO FUNCIONA ── */
 #processo {
   padding: 8rem 5vw;
@@ -367,7 +402,7 @@ h2 {
   padding: .2rem .65rem; font-size: .7rem; font-weight: 700;
   letter-spacing: .05em; color: var(--fire); text-transform: uppercase;
 }
-
+ 
 /* ── SERVIÇOS ── */
 #servicos { padding: 8rem 5vw; }
 #servicos h2 { text-align: center; margin-bottom: .5rem; }
@@ -395,7 +430,7 @@ h2 {
   background: var(--warm); border-radius: 2px;
   padding: .25rem .6rem; font-size: .72rem; font-weight: 600; color: var(--mist);
 }
-
+ 
 /* ── PREÇOS ── */
 #precos { padding: 8rem 5vw; background: var(--warm); }
 #precos h2 { text-align: center; }
@@ -427,8 +462,8 @@ h2 {
 .hot .pc-divider { background: rgba(255,255,255,.1); }
 .pc-features { display: flex; flex-direction: column; gap: .65rem; margin-bottom: 2rem; }
 .pc-feat { display: flex; align-items: flex-start; gap: .6rem; font-size: .83rem; }
-.pc-feat .ok { color: #22C55E; font-weight: 700; margin-top: .05rem; }
-.pc-feat .no { color: #9CA3AF; }
+.pc-feat .ok { color: #22C55E; font-weight: 700; margin-top: .05rem; flex-shrink: 0; }
+.pc-feat .no { color: #9CA3AF; flex-shrink: 0; }
 .hot .pc-feat { color: #D1D5DB; }
 .pc-cta {
   display: block; text-align: center;
@@ -443,7 +478,7 @@ h2 {
 .cta-outline { background: transparent; color: var(--mist); border: 1.5px solid var(--line); }
 .cta-outline:hover { border-color: var(--ink); color: var(--ink); }
 .preco-nota { text-align: center; font-size: .82rem; color: var(--mist); margin-top: 2rem; }
-
+ 
 /* ── SIMULADOR ── */
 #simulador { padding: 8rem 5vw; }
 #simulador h2 { text-align: center; }
@@ -481,6 +516,10 @@ input[type=range]::-webkit-slider-thumb {
   background: var(--fire); cursor: pointer;
   box-shadow: 0 2px 8px rgba(232,77,28,.5);
 }
+input[type=range]::-moz-range-thumb {
+  width: 18px; height: 18px; border-radius: 50%; border: none;
+  background: var(--fire); cursor: pointer;
+}
 .sim-checks { display: grid; grid-template-columns: repeat(2,1fr); gap: .7rem; }
 .sim-check {
   display: flex; align-items: center; gap: .8rem;
@@ -511,7 +550,7 @@ input[type=range]::-webkit-slider-thumb {
   white-space: nowrap; transition: all .2s;
 }
 .sim-r-cta:hover { background: var(--fire-dark); transform: scale(1.03); }
-
+ 
 /* ── POR QUE EU ── */
 #porqueeu { padding: 8rem 5vw; background: var(--white); }
 #porqueeu h2 { text-align: center; margin-bottom: .5rem; }
@@ -528,7 +567,7 @@ input[type=range]::-webkit-slider-thumb {
 }
 .pq h4 { font-family: 'Roboto', sans-serif; font-size: 1.05rem; font-weight: 700; margin-bottom: .5rem; }
 .pq p { font-size: .84rem; color: var(--mist); line-height: 1.65; }
-
+ 
 /* ── FAQ ── */
 #faq { padding: 8rem 5vw; }
 #faq h2 { text-align: center; margin-bottom: 3rem; }
@@ -544,15 +583,15 @@ input[type=range]::-webkit-slider-thumb {
   transition: background .15s;
 }
 .fq-q:hover { background: var(--warm); }
-.fq-arr { font-size: 1rem; color: var(--fire); transition: transform .3s; }
+.fq-arr { font-size: 1rem; color: var(--fire); transition: transform .3s; flex-shrink: 0; margin-left: 1rem; }
 .fq.open .fq-arr { transform: rotate(45deg); }
 .fq-a {
   max-height: 0; overflow: hidden;
   transition: max-height .4s ease, padding .3s;
   padding: 0 1.5rem; font-size: .87rem; color: var(--mist); line-height: 1.75;
 }
-.fq.open .fq-a { max-height: 220px; padding: 0 1.5rem 1.3rem; }
-
+.fq.open .fq-a { max-height: 300px; padding: 0 1.5rem 1.3rem; }
+ 
 /* ── CONTATO ── */
 #contato { padding: 8rem 5vw; background: var(--ink); color: var(--white); }
 .contato-inner {
@@ -602,7 +641,7 @@ input[type=range]::-webkit-slider-thumb {
   background: #F0FDF4; border-radius: 6px; border: 1px solid #86EFAC;
   color: #166534; font-weight: 600; font-size: .9rem;
 }
-
+ 
 /* ── FOOTER ── */
 footer {
   background: #080808; color: var(--white);
@@ -614,7 +653,7 @@ footer p { font-size: .8rem; color: #4B5563; }
 .f-links { display: flex; gap: 1.5rem; }
 .f-links a { font-size: .78rem; color: #4B5563; text-decoration: none; transition: color .2s; }
 .f-links a:hover { color: var(--white); }
-
+ 
 /* ── WA FLOAT ── */
 .wa {
   position: fixed; bottom: 2rem; right: 2rem; z-index: 400;
@@ -626,7 +665,7 @@ footer p { font-size: .8rem; color: #4B5563; }
   transition: transform .2s;
 }
 .wa:hover { transform: scale(1.12); }
-
+ 
 /* ── REVEAL ── */
 .r { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
 .r.v { opacity: 1; transform: none; }
@@ -634,34 +673,48 @@ footer p { font-size: .8rem; color: #4B5563; }
 .r2.v { opacity: 1; transform: none; }
 .r3 { opacity: 0; transform: translateY(28px); transition: opacity .7s .3s ease, transform .7s .3s ease; }
 .r3.v { opacity: 1; transform: none; }
-
+ 
 /* ── ANIMS ── */
 @keyframes slideDown { from{opacity:0;transform:translateY(-14px)} to{opacity:1;transform:none} }
 @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
-
+ 
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
-  nav{padding:.9rem 1.5rem}
-  .nav-links{display:none}
-  #hero{grid-template-columns:1fr;padding:7rem 1.5rem 3rem;gap:2.5rem}
-  #proposta{grid-template-columns:1fr;padding:4rem 1.5rem;gap:2rem}
-  .steps-wrap{grid-template-columns:1fr 1fr;gap:2rem}
-  .steps-wrap::before{display:none}
-  .services-grid,.precos-grid,.porqueeu-grid{grid-template-columns:1fr}
-  #servicos,#precos,#simulador,#processo,#faq,#porqueeu,#contato{padding:4rem 1.5rem}
-  .contato-inner{grid-template-columns:1fr;gap:2.5rem}
-  .sim-checks{grid-template-columns:1fr}
-  footer{flex-direction:column;text-align:center}
-  .float-badge,.float-tag{display:none}
+  nav { padding:.9rem 1.5rem; }
+  .nav-links { display:none; }
+  .hamburger { display:flex; }
+  #hero { grid-template-columns:1fr; padding:7rem 1.5rem 3rem; gap:2.5rem; }
+  #proposta { grid-template-columns:1fr; padding:4rem 1.5rem; gap:2rem; }
+  .steps-wrap { grid-template-columns:1fr 1fr; gap:2rem; }
+  .steps-wrap::before { display:none; }
+  .services-grid,.precos-grid,.porqueeu-grid { grid-template-columns:1fr; }
+  #servicos,#precos,#simulador,#processo,#faq,#porqueeu,#contato { padding:4rem 1.5rem; }
+  .contato-inner { grid-template-columns:1fr; gap:2.5rem; }
+  .sim-checks { grid-template-columns:1fr; }
+  footer { flex-direction:column; text-align:center; }
+  .float-badge,.float-tag { display:none; }
+  .proposta-grid { grid-template-columns:1fr; }
+  .sim-top { flex-direction:column; align-items:flex-start; gap:1rem; }
+  .sim-body { padding:1.5rem; }
+  .sim-result { flex-direction:column; text-align:center; }
+  .sim-r-cta { width:100%; text-align:center; }
+}
+ 
+@media(max-width:600px){
+  h1 { font-size:2.2rem; }
+  h2 { font-size:1.7rem; }
+  .hero-ctas { flex-direction:column; }
+  .cta-main, .cta-sec { text-align:center; }
+  .precos-grid { grid-template-columns:1fr; }
 }
 </style>
 </head>
 <body>
-
-<!-- CURSOR -->
+ 
+<!-- CURSOR (desktop only) -->
 <div class="cursor" id="cur"></div>
 <div class="cursor-ring" id="cur-ring"></div>
-
+ 
 <!-- NAV -->
 <nav>
   <a href="#" class="logo">Site<b>24h</b></a>
@@ -673,14 +726,27 @@ footer p { font-size: .8rem; color: #4B5563; }
     <li><a href="#faq">FAQ</a></li>
   </ul>
   <a href="https://wa.me/5511912120056" target="_blank" class="nav-btn">Falar agora →</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
-
+ 
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#proposta" onclick="closeMob()">Sobre</a>
+  <a href="#servicos" onclick="closeMob()">Serviços</a>
+  <a href="#precos" onclick="closeMob()">Preços</a>
+  <a href="#simulador" onclick="closeMob()">Simular preço</a>
+  <a href="#faq" onclick="closeMob()">FAQ</a>
+  <a href="https://wa.me/5511912120056" target="_blank" class="mob-cta" onclick="closeMob()">💬 Falar no WhatsApp</a>
+</div>
+ 
 <!-- HERO -->
 <section id="hero">
   <div class="hero-grain"></div>
   <div class="hero-blob blob1"></div>
   <div class="hero-blob blob2"></div>
-
+ 
   <div class="hero-left">
     <div class="launch-pill">
       <span class="pill-dot"></span>
@@ -710,7 +776,7 @@ footer p { font-size: .8rem; color: #4B5563; }
       </div>
     </div>
   </div>
-
+ 
   <div class="hero-right">
     <div class="device-stack">
       <div class="float-tag">⚡ Pronto em 24h</div>
@@ -772,14 +838,14 @@ footer p { font-size: .8rem; color: #4B5563; }
     </div>
   </div>
 </section>
-
+ 
 <!-- MARQUEE -->
 <div class="marquee-wrap">
   <div class="marquee-track">
     Site profissional <span>✦</span> Entrega em 24h <span>✦</span> Design moderno <span>✦</span> Mobile first <span>✦</span> Preço justo <span>✦</span> São Paulo <span>✦</span> WhatsApp integrado <span>✦</span> SEO incluso <span>✦</span> Site profissional <span>✦</span> Entrega em 24h <span>✦</span> Design moderno <span>✦</span> Mobile first <span>✦</span> Preço justo <span>✦</span> São Paulo <span>✦</span> WhatsApp integrado <span>✦</span> SEO incluso <span>✦</span>
   </div>
 </div>
-
+ 
 <!-- PROPOSTA -->
 <section id="proposta">
   <div class="r">
@@ -830,7 +896,7 @@ footer p { font-size: .8rem; color: #4B5563; }
     </div>
   </div>
 </section>
-
+ 
 <!-- PROCESSO -->
 <section id="processo">
   <div class="eyebrow" style="text-align:center">Como funciona</div>
@@ -863,7 +929,7 @@ footer p { font-size: .8rem; color: #4B5563; }
     </div>
   </div>
 </section>
-
+ 
 <!-- SERVIÇOS -->
 <section id="servicos">
   <div class="eyebrow" style="text-align:center">O que eu faço</div>
@@ -938,7 +1004,7 @@ footer p { font-size: .8rem; color: #4B5563; }
     </div>
   </div>
 </section>
-
+ 
 <!-- PREÇOS -->
 <section id="precos">
   <div class="eyebrow" style="text-align:center">Investimento</div>
@@ -1000,7 +1066,7 @@ footer p { font-size: .8rem; color: #4B5563; }
   </div>
   <p class="preco-nota">💳 Pagamento via PIX ou cartão em até 12x &nbsp;·&nbsp; 50% na aprovação, 50% na entrega &nbsp;·&nbsp; Sem taxas ocultas</p>
 </section>
-
+ 
 <!-- SIMULADOR -->
 <section id="simulador">
   <div class="eyebrow" style="text-align:center">Calculadora</div>
@@ -1060,11 +1126,11 @@ footer p { font-size: .8rem; color: #4B5563; }
     </div>
   </div>
 </section>
-
+ 
 <!-- POR QUE EU -->
 <section id="porqueeu">
   <div class="eyebrow" style="text-align:center">Diferenciais</div>
-  <h2 style="text-align:center">Por que escolher a PixelUp?</h2>
+  <h2 style="text-align:center">Por que escolher a Site24h?</h2>
   <p class="sec-sub">Sim, sou novo. Mas aqui estão os motivos concretos para confiar no meu trabalho.</p>
   <div class="porqueeu-grid">
     <div class="pq r">
@@ -1099,7 +1165,7 @@ footer p { font-size: .8rem; color: #4B5563; }
     </div>
   </div>
 </section>
-
+ 
 <!-- FAQ -->
 <section id="faq">
   <div class="eyebrow" style="text-align:center">Dúvidas</div>
@@ -1131,7 +1197,7 @@ footer p { font-size: .8rem; color: #4B5563; }
     </div>
   </div>
 </section>
-
+ 
 <!-- CONTATO -->
 <section id="contato">
   <div class="contato-inner">
@@ -1197,11 +1263,11 @@ footer p { font-size: .8rem; color: #4B5563; }
     </div>
   </div>
 </section>
-
+ 
 <!-- FOOTER -->
 <footer>
-  <div class="f-logo">Pixel<b>Up</b></div>
-  <p>© 2025 PixelUp · Sites profissionais em São Paulo</p>
+  <div class="f-logo">Site<b>24h</b></div>
+  <p>© 2025 Site24h · Sites profissionais em São Paulo</p>
   <div class="f-links">
     <a href="#proposta">Sobre</a>
     <a href="#servicos">Serviços</a>
@@ -1209,39 +1275,67 @@ footer p { font-size: .8rem; color: #4B5563; }
     <a href="#contato">Contato</a>
   </div>
 </footer>
-
+ 
 <!-- WA FLOAT -->
 <a href="https://wa.me/5511912120056?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento." target="_blank" class="wa" title="Falar no WhatsApp">💬</a>
-
+ 
 <script>
-// ── Custom cursor ──
-const cur = document.getElementById('cur');
-const ring = document.getElementById('cur-ring');
-let mx = 0, my = 0, rx = 0, ry = 0;
-document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-function animCursor() {
-  cur.style.left = mx + 'px'; cur.style.top = my + 'px';
-  rx += (mx - rx) * .12; ry += (my - ry) * .12;
-  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-  requestAnimationFrame(animCursor);
+// ── Custom cursor (desktop only) ──
+var isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+var cur = document.getElementById('cur');
+var ring = document.getElementById('cur-ring');
+ 
+if (!isTouchDevice && cur && ring) {
+  var mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', function(e) { mx = e.clientX; my = e.clientY; });
+  function animCursor() {
+    cur.style.left = mx + 'px'; cur.style.top = my + 'px';
+    rx += (mx - rx) * .12; ry += (my - ry) * .12;
+    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    requestAnimationFrame(animCursor);
+  }
+  animCursor();
+} else {
+  if (cur) cur.style.display = 'none';
+  if (ring) ring.style.display = 'none';
 }
-animCursor();
-
+ 
+// ── Hamburger menu ──
+var hamburger = document.getElementById('hamburger');
+var mobileMenu = document.getElementById('mobile-menu');
+ 
+hamburger.addEventListener('click', function() {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+ 
+function closeMob() {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+}
+ 
+// Close menu on outside click
+document.addEventListener('click', function(e) {
+  if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+    closeMob();
+  }
+});
+ 
 // ── Simulador ──
-const cxLabels = ['Simples', 'Intermediário', 'Avançado'];
-let extras = 0;
-
+var cxLabels = ['Simples', 'Intermediário', 'Avançado'];
+var extras = 0;
+ 
 function calcSim() {
-  const pag = parseInt(document.getElementById('sl-pag').value);
-  const cx = parseInt(document.getElementById('sl-cx').value);
-  const base = 450 + (pag - 1) * 90;
-  const cxAdd = (cx - 1) * 180;
-  const total = base + cxAdd + extras;
+  var pag = parseInt(document.getElementById('sl-pag').value);
+  var cx = parseInt(document.getElementById('sl-cx').value);
+  var base = 500 + (pag - 1) * 90;
+  var cxAdd = (cx - 1) * 180;
+  var total = base + cxAdd + extras;
   document.getElementById('sim-total').textContent = total.toLocaleString('pt-BR');
 }
-
+ 
 document.getElementById('sl-pag').addEventListener('input', function() {
-  const v = this.value;
+  var v = this.value;
   document.getElementById('chip-pag').textContent = v + (v == 1 ? ' página' : ' páginas');
   calcSim();
 });
@@ -1249,39 +1343,62 @@ document.getElementById('sl-cx').addEventListener('input', function() {
   document.getElementById('chip-cx').textContent = cxLabels[this.value - 1];
   calcSim();
 });
+ 
 function togCheck(el) {
   el.classList.toggle('on');
   extras = 0;
-  document.querySelectorAll('.sim-check.on').forEach(c => extras += parseInt(c.dataset.val));
+  document.querySelectorAll('.sim-check.on').forEach(function(c) {
+    extras += parseInt(c.dataset.val);
+  });
   calcSim();
 }
-
+ 
+// Inicializa o simulador com valor correto
+calcSim();
+ 
 // ── FAQ ──
 function togFaq(el) {
-  const item = el.parentElement;
-  const open = item.classList.contains('open');
-  document.querySelectorAll('.fq').forEach(f => f.classList.remove('open'));
+  var item = el.parentElement;
+  var open = item.classList.contains('open');
+  document.querySelectorAll('.fq').forEach(function(f) { f.classList.remove('open'); });
   if (!open) item.classList.add('open');
 }
-
-// ── Reveal ──
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('v'); obs.unobserve(e.target); } });
-}, { threshold: 0.1 });
-document.querySelectorAll('.r,.r2,.r3').forEach(el => obs.observe(el));
-
+ 
+// ── Reveal on scroll ──
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      e.target.classList.add('v');
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.r,.r2,.r3').forEach(function(el) { obs.observe(el); });
+ 
 // ── Formulário → WhatsApp ──
 function enviar() {
-  const nome = document.getElementById('fn').value.trim();
-  const wa = document.getElementById('fw').value.trim();
-  if (!nome || !wa) { alert('Por favor, preencha seu nome e WhatsApp.'); return; }
-  const tipo = document.getElementById('ft').value || 'Não informado';
-  const msg = document.getElementById('fm').value.trim() || 'Não informada';
-  const txt = encodeURIComponent(`Olá! Vim pelo site PixelUp 👋\n\n*Nome:* ${nome}\n*WhatsApp:* ${wa}\n*Negócio:* ${tipo}\n*Mensagem:* ${msg}`);
+  var nome = document.getElementById('fn').value.trim();
+  var wa = document.getElementById('fw').value.trim();
+  if (!nome || !wa) {
+    alert('Por favor, preencha seu nome e WhatsApp.');
+    return;
+  }
+  var tipo = document.getElementById('ft').value || 'Não informado';
+  var msg = document.getElementById('fm').value.trim() || 'Não informada';
+  var txt = encodeURIComponent(
+    'Olá! Vim pelo site Site24h 👋\n\n' +
+    '*Nome:* ' + nome + '\n' +
+    '*WhatsApp:* ' + wa + '\n' +
+    '*Negócio:* ' + tipo + '\n' +
+    '*Mensagem:* ' + msg
+  );
   document.getElementById('form-ok').style.display = 'block';
   document.getElementById('form-wrap').style.display = 'none';
-  setTimeout(() => window.open(`https://wa.me/5511912120056?text=${txt}`, '_blank'), 800);
+  setTimeout(function() {
+    window.open('https://wa.me/5511912120056?text=' + txt, '_blank');
+  }, 800);
 }
 </script>
 </body>
 </html>
+ 
